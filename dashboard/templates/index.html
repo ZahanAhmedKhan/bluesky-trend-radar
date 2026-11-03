@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bluesky Live Trend Radar</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Live signal board</p>
+          <h1 id="campaign-title">Bluesky Live Trend Radar</h1>
+        </div>
+        <div class="status-pill">
+          <span class="pulse"></span>
+          <span id="status-text">Systems healthy</span>
+        </div>
+      </header>
+
+      <section class="kpi-grid">
+        <article class="metric-card accent-blue">
+          <span class="metric-label">Posts / min</span>
+          <strong id="posts-per-minute">0</strong>
+          <small>Fresh stream volume</small>
+        </article>
+        <article class="metric-card accent-purple">
+          <span class="metric-label">Trend momentum</span>
+          <strong id="momentum-value">0%</strong>
+          <small>Recent acceleration</small>
+        </article>
+        <article class="metric-card accent-gold">
+          <span class="metric-label">Lag</span>
+          <strong id="lag-value">0s</strong>
+          <small>End-to-end delay</small>
+        </article>
+        <article class="metric-card accent-green">
+          <span class="metric-label">DLQ rate</span>
+          <strong id="dlq-rate">0%</strong>
+          <small>Bad events / total</small>
+        </article>
+      </section>
+
+      <main class="content-grid">
+        <section class="panel chart-panel wide-panel">
+          <div class="panel-header">
+            <div>
+              <p class="eyebrow">Live feed</p>
+              <h2>Posts per minute</h2>
+            </div>
+            <span class="chip" id="signal-chip">Rising fast</span>
+          </div>
+          <canvas id="postsChart"></canvas>
+        </section>
+
+        <section class="panel chart-panel">
+          <div class="panel-header">
+            <div>
+              <p class="eyebrow">Audience mix</p>
+              <h2>Language share</h2>
+            </div>
+          </div>
+          <canvas id="languageChart"></canvas>
+        </section>
+
+        <section class="panel">
+          <div class="panel-header">
+            <div>
+              <p class="eyebrow">Most active</p>
+              <h2>Top hashtags</h2>
+            </div>
+          </div>
+          <div id="top-hashtags" class="bar-list"></div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-header">
+            <div>
+              <p class="eyebrow">Biggest risers</p>
+              <h2>Spike leaderboard</h2>
+            </div>
+          </div>
+          <div id="biggest-risers" class="table-list"></div>
+        </section>
+
+        <section class="panel full-span">
+          <div class="panel-header">
+            <div>
+              <p class="eyebrow">Pipeline health</p>
+              <h2>Operational view</h2>
+            </div>
+          </div>
+          <div class="health-grid">
+            <div>
+              <span>Uptime</span>
+              <strong id="uptime-value">0 min</strong>
+            </div>
+            <div>
+              <span>Triggered alerts</span>
+              <strong id="alerts-value">0</strong>
+            </div>
+            <div>
+              <span>Focus signal</span>
+              <strong id="focus-signal">--</strong>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="/static/app.js"></script>
+  </body>
+</html>

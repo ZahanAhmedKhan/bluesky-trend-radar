@@ -61,6 +61,17 @@ services:
       kafka-topics --bootstrap-server kafka:9092 --create --if-not-exists --topic bsky.posts.dlq --partitions 1 --replication-factor 1 --config retention.ms=86400000'
     restart: "no"
 
+  dashboard:
+    build:
+      context: ./dashboard
+    container_name: bluesky-dashboard
+    ports:
+      - "8000:8000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    restart: unless-stopped
+
   producer:
     build:
       context: ./producer
