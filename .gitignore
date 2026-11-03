@@ -1,0 +1,31 @@
+# Local project instructions
+CLAUDE.md
+.claude/
+
+# Environment secrets
+.env
+.env.*
+!.env.example
+
+# Python cache and venvs
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Logs and local state
+*.log
+.cursor/
+*.pid
+
+# OS/editor files
+.DS_Store
+Thumbs.db
+
+# Docker local volumes are managed by Compose and should be local-only
+# (no checked-in data)
+
+# Test artifacts
+.pytest_cache/
+.coverage
+htmlcov/
